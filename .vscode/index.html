@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Crypto Pro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- CryptoJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+</head>
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+<div id="authBox" class="auth-wrapper">
+
+    <div class="auth-card-pro">
+
+        <h2 class="logo">🔐 Crypto Pro</h2>
+<p class="subtitle">Secure • Fast • Modern</p>
+
+        <!-- INPUTS -->
+        <div class="auth-fields">
+            <div class="input-group">
+                <span>👤</span>
+                <input type="text" id="username" placeholder="Email or Username">
+            </div>
+
+            <div class="input-group">
+                <span>🔑</span>
+                <input type="password" id="authPassword" placeholder="Password">
+            </div>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="auth-actions">
+            <button onclick="login()" class="primary-btn">Login</button>
+            <button onclick="signup()" class="secondary-btn">Create Account</button>
+        </div>
+
+        <!-- EXTRA OPTIONS -->
+        <div class="auth-extra">
+            <button onclick="continueAsGuest()" class="ghost-btn">
+                🚀 Continue as Guest
+            </button>
+
+            <button onclick="openForgot()" class="link-btn">
+                Forgot Password?
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<div id="navbar" class="navbar" style="display:none;">
+    <div class="nav-logo">🔐 Crypto Pro</div>
+
+    <div class="nav-links">
+        <button onclick="showSection('dashboard')">Dashboard</button>
+        <button onclick="showSection('historyPage')">History</button>
+        <button onclick="showSection('learnPage')">Learn</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<!-- ================= MAIN APP ================= -->
+<div id="app" style="display:none;">
+
+    <!-- ===== DASHBOARD ===== -->
+    <div id="dashboard" class="page">
+        <h2>Encryption Dashboard</h2>
+        <p class="section-desc">
+            Encrypt and decrypt your data securely using modern cryptographic algorithms.
+        </p>
+
+        <div class="card">
+            <label>Algorithm</label>
+            <select id="algo">
+                <option value="aes">AES (Secure)</option>
+                <option value="caesar">Caesar (Basic)</option>
+                <option value="xor">XOR (Fast)</option>
+            </select>
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter encryption key">
+            <div id="strength"></div>
+
+            <label>Input</label>
+            <textarea id="input" placeholder="Enter text here..."></textarea>
+
+            <div class="buttons">
+                <button onclick="encrypt()">🔒 Encrypt</button>
+                <button onclick="decrypt()">🔓 Decrypt</button>
+                <button onclick="copyText()">📋 Copy</button>
+            </div>
+
+            <label>Output</label>
+            <textarea id="output" placeholder="Encrypted / Decrypted result"></textarea>
+        </div>
+    </div>
+
+    <!-- ===== HISTORY ===== -->
+    <div id="historyPage" class="page" style="display:none;">
+        <h2>History</h2>
+        <p class="section-desc">
+            View and manage your past encryption results.
+        </p>
+
+        <div class="card">
+            <ul id="history"></ul>
+            <button onclick="exportHistory()">Export History</button>
+        </div>
+    </div>
+
+    <!-- ===== LEARN ===== -->
+    <div id="learnPage" class="page" style="display:none;">
+        <h2>Learn Cryptography</h2>
+        <p class="section-desc">
+            Explore encryption techniques and understand how they work.
+        </p>
+
+        <div class="learn-grid">
+
+            <div class="learn-card" onclick="openTopic('aes')">
+                <h3>🔐 AES Encryption</h3>
+                <p>Industry-standard secure encryption used worldwide.</p>
+            </div>
+
+            <div class="learn-card" onclick="openTopic('caesar')">
+                <h3>📜 Caesar Cipher</h3>
+                <p>Simple substitution cipher used in ancient times.</p>
+            </div>
+
+            <div class="learn-card" onclick="openTopic('xor')">
+                <h3>⚡ XOR Cipher</h3>
+                <p>Fast bitwise encryption used in low-level systems.</p>
+            </div>
+
+        </div>
+
+        <div id="learnDetail" class="info-card"></div>
+    </div>
+
+</div>
+
+<!-- ================= FORGOT PASSWORD ================= -->
+<div id="forgotModal" class="modal">
+    <div class="modal-content glass-card">
+        <h3>Reset Password</h3>
+
+        <input type="text" id="resetUser" placeholder="Email / Username">
+        <input type="password" id="newPass" placeholder="New Password">
+
+        <div class="buttons">
+            <button onclick="resetPassword()">Reset</button>
+            <button onclick="closeForgot()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- ================= CHANGE PASSWORD ================= -->
+<div id="changeModal" class="modal">
+    <div class="modal-content glass-card">
+        <h3>Change Password</h3>
+
+        <input type="password" id="oldPass" placeholder="Old Password">
+        <input type="password" id="newPass2" placeholder="New Password">
+
+        <div class="buttons">
+            <button onclick="changePassword()">Update</button>
+            <button onclick="closeChange()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
