@@ -1,0 +1,540 @@
+/* ===============================
+   🎯 GLOBAL DESIGN SYSTEM
+=============================== */
+:root {
+    --primary: #6c63ff;
+    --primary-dark: #4a47a3;
+    --bg-dark: #0f0f1a;
+    --bg-card: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.08);
+    --text-muted: #a0a0c0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#0f0f1a,#1c1c3a);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND BLOBS */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    filter: blur(120px);
+    z-index: -1;
+}
+body::before {
+    width: 400px;
+    height: 400px;
+    background: #6c63ff;
+    top: -100px;
+    left: -100px;
+}
+body::after {
+    width: 300px;
+    height: 300px;
+    background: #ff6ec7;
+    bottom: -100px;
+    right: -100px;
+}
+
+/* ===============================
+   🧊 GLASS SYSTEM
+=============================== */
+.glass {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+/* ===============================
+   🔐 LOGIN PAGE (PREMIUM)
+=============================== */
+.auth-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: radial-gradient(circle at 20% 20%, #1e1b4b, transparent 40%),
+                radial-gradient(circle at 80% 80%, #4f46e5, transparent 40%),
+                linear-gradient(135deg, #020617, #0f172a);
+
+    padding: 20px;
+}
+
+/* ===== LOGIN CARD ===== */
+.auth-card-pro {
+    width: 380px;
+    padding: 40px 30px;
+
+    border-radius: 18px;
+
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.7),
+        0 0 0 1px rgba(255,255,255,0.03);
+
+    text-align: center;
+}
+
+/* ===== LOGO ===== */
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-bottom: 5px;
+}
+
+/* ===== SUBTITLE ===== */
+.subtitle {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-bottom: 25px;
+}
+
+/* ===== INPUT GROUP ===== */
+.auth-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+
+    background: #020617;
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+/* ICON */
+.input-group span {
+    margin-right: 8px;
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+/* INPUT */
+.input-group input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: #e2e8f0;
+    font-size: 14px;
+}
+
+/* FOCUS EFFECT */
+.input-group:focus-within {
+    border-color: #6366f1;
+    box-shadow: 0 0 10px rgba(99,102,241,0.4);
+}
+
+/* ===== BUTTONS ===== */
+.auth-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* PRIMARY */
+.primary-btn {
+    flex: 1;
+    padding: 12px;
+
+    border: none;
+    border-radius: 10px;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+
+    transition: 0.25s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99,102,241,0.4);
+}
+
+/* SECONDARY */
+.secondary-btn {
+    flex: 1;
+    padding: 12px;
+
+    border-radius: 10px;
+    border: 1px solid #6366f1;
+
+    background: transparent;
+    color: #6366f1;
+
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.secondary-btn:hover {
+    background: rgba(99,102,241,0.1);
+}
+
+/* ===== EXTRA SECTION ===== */
+.auth-extra {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* GHOST BUTTON */
+.ghost-btn {
+    padding: 10px;
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.05);
+    border: none;
+
+    color: #cbd5f5;
+    cursor: pointer;
+}
+
+.ghost-btn:hover {
+    background: rgba(99,102,241,0.2);
+}
+
+/* LINK BUTTON */
+.link-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.link-btn:hover {
+    color: #6366f1;
+}
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+    from {
+        opacity:0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   🧭 NAVBAR
+=============================== */
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    padding:15px 30px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(15px);
+}
+
+.nav-links button {
+    padding:8px 14px;
+    margin-left:10px;
+    border-radius:8px;
+}
+
+/* ===============================
+   🧱 LAYOUT
+=============================== */
+.app-container {
+    display:flex;
+    height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width:250px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+}
+
+.main {
+    flex:1;
+    padding:25px;
+    overflow-y:auto;
+}
+
+/* ===============================
+   📜 SIDEBAR
+=============================== */
+.sidebar h3 {
+    margin-bottom:10px;
+}
+
+.sidebar input {
+    margin-bottom:10px;
+}
+
+.sidebar ul {
+    overflow:auto;
+    padding:0;
+}
+
+.sidebar li {
+    list-style:none;
+    padding:10px;
+    margin-bottom:6px;
+    border-radius:8px;
+    background: rgba(255,255,255,0.05);
+    cursor:pointer;
+}
+
+.sidebar li:hover {
+    background: rgba(108,99,255,0.25);
+    transform: translateX(5px);
+}
+
+/* ===============================
+   🧠 HEADER
+=============================== */
+.header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.header h1 {
+    font-size:24px;
+    font-weight:700;
+    background: linear-gradient(135deg,#fff,#b3b3ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* ===============================
+   ⚙️ CONTROLS
+=============================== */
+.top-controls,
+.info-box,
+.page {
+    padding:20px;
+    margin-bottom:20px;
+}
+
+/* ===============================
+   ✍️ INPUTS
+=============================== */
+textarea, input, select {
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background: rgba(255,255,255,0.08);
+    color:white;
+}
+
+textarea {
+    min-height:120px;
+}
+
+textarea:focus,
+input:focus {
+    outline:none;
+    border:1px solid var(--primary);
+}
+
+/* ===============================
+   🔘 BUTTONS (PRO LEVEL)
+=============================== */
+button {
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    color:white;
+    background: linear-gradient(135deg,var(--primary),var(--primary-dark));
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108,99,255,0.4);
+}
+
+/* BUTTON GROUP */
+.buttons {
+    display:flex;
+    gap:10px;
+    margin:10px 0;
+}
+
+/* ===============================
+   🌗 THEME BUTTON
+=============================== */
+.theme-btn {
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: rgba(255,255,255,0.1);
+}
+
+/* ===============================
+   📊 PASSWORD BAR
+=============================== */
+#strength {
+    height:6px;
+    background: rgba(255,255,255,0.1);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+/* ===============================
+   📂 FILE + OUTPUT
+=============================== */
+#output {
+    border:1px solid rgba(108,99,255,0.3);
+    box-shadow: 0 0 20px rgba(108,99,255,0.2);
+}
+
+/* ===============================
+   🔥 TOAST
+=============================== */
+.toast {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background: var(--primary);
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:600;
+}
+
+/* ===============================
+   ⏳ LOADER
+=============================== */
+body.loading::after {
+    content:"Processing...";
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:var(--primary);
+    padding:15px 25px;
+    border-radius:10px;
+}
+
+/* ===============================
+   📚 LEARN SECTION
+=============================== */
+.learn-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.learn-card {
+    padding:20px;
+    border-radius:15px;
+    background: rgba(255,255,255,0.05);
+}
+
+.learn-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(108,99,255,0.3);
+}
+
+/* ===============================
+   🔐 MODAL
+=============================== */
+.modal {
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    padding:25px;
+    width:300px;
+}
+
+/* ===============================
+   🌞 LIGHT MODE
+=============================== */
+body.light {
+    background:#f5f5f5;
+    color:black;
+}
+
+body.light .glass {
+    background:white;
+    border:1px solid rgba(0,0,0,0.05);
+}
+
+body.light input,
+body.light textarea {
+    background:#eee;
+    color:black;
+}
+
+/* ===============================
+   📱 RESPONSIVE
+=============================== */
+@media (max-width:768px) {
+    .app-container {
+        flex-direction:column;
+    }
+
+    .sidebar {
+        width:100%;
+    }
+
+    .buttons {
+        flex-direction:column;
+    }
+}
+.info-card {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.info-card ul {
+    padding-left: 20px;
+}
+
+.info-card li {
+    margin-bottom: 6px;
+}
+
+.info-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #6c63ff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.info-card a:hover {
+    text-decoration: underline;
+}
