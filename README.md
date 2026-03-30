@@ -115,68 +115,19 @@ It bridges the gap between **Enterprise Java Logic** and **Modern Web Aesthetics
 
 ---
 
-## 📁 Repository Architecture
+## 📁 Repository Blueprint
 
-<div align="center">
-  <br />
-  <img src="https://img.shields.io/badge/Project_Structure-Flat_Modular-black" />
-  <br /><br />
-</div>
-
-<table width="100%">
-  <thead>
-    <tr>
-      <th align="left">DIRECTORY / FILE</th>
-      <th align="left">ROLE</th>
-      <th align="left">DESCRIPTION</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>📂 crypto-website/</code></td>
-      <td><b>Frontend</b></td>
-      <td>Contains the HTML5, CSS3, and JavaScript files for the web-based UI.</td>
-    </tr>
-    <tr>
-      <td><code>📂 .vscode/</code></td>
-      <td><b>Environment</b></td>
-      <td>IDE-specific configurations, build tasks, and debugger launch settings.</td>
-    </tr>
-    <tr>
-      <td><code>📄 CryptoGUI.java</code></td>
-      <td><b>View</b></td>
-      <td>The Desktop Graphical User Interface layer built using Java Swing.</td>
-    </tr>
-    <tr>
-      <td><code>📄 CryptoProject.java</code></td>
-      <td><b>Controller</b></td>
-      <td>The main logic engine containing encryption algorithms and auth systems.</td>
-    </tr>
-    <tr>
-      <td><code>📄 .gitignore</code></td>
-      <td><b>DevOps</b></td>
-      <td>Excludes compiled <code>.class</code> files and local IDE metadata from the repo.</td>
-    </tr>
-    <tr>
-      <td><code>📄 LICENSE</code></td>
-      <td><b>Legal</b></td>
-      <td>The MIT License granting permission for open-source use and modification.</td>
-    </tr>
-  </tbody>
-</table>
-
-<br />
-
-### 🌳 Visual File Tree
 ```text
 CryptoPro-Core/
-├── .vscode/               # VS Code Launch Configurations
-├── crypto-website/        # Web Interface (HTML, CSS, JS)
-├── CryptoGUI.java         # Desktop UI Entry Point
-├── CryptoProject.java     # Logic, Auth & Encryption Core
-├── .gitignore             # Git Exclusion Rules
-├── LICENSE                # Open Source Licensing
-└── README.md              # Project Documentation
+├── .vscode/               # Environment Configuration
+├── crypto-website/        # 🌐 Modern Web Interface
+│   ├── index.html         # Dashboard Entry
+│   ├── script.js          # Interactive UI Logic
+│   └── style.css          # Glassmorphism Stylesheet
+├── CryptoGUI.java         # 🖥️ Desktop UI Controller
+├── CryptoProject.java     # ⚙️ Core Logic Engine
+├── .gitignore             # Optimized Exclusions
+└── LICENSE                # MIT Framework
 ```
 ---
 
